@@ -1,0 +1,39 @@
+== 0.3.1 - 11-Aug-2009
+* Changed license to Artistic 2.0.
+* The Semaphore.open method is now slightly more robust.
+* Renamed the test and example files.
+* Some gemspec updates, including license and description.
+
+== 0.3.0 - 3-May-2007
+* Now pure Ruby.
+* Added a Rakefile, with test, install and example tasks.
+* Both the Semaphore.new and Semaphore.open methods now accept a block, and
+  automatically close the associated handle at the end of the block.
+* The Semaphore.new method now accepts an optional fourth argument that
+  controls whether the Event object can be inherited by other processes.
+* Added a gemspec.
+* Removed the doc/semaphore.txt file. The documentation is now inlined via
+  RDoc. There is also some documentation in the README file.
+
+== 0.2.2 - 10-Jun-2005
+* Now Unicode friendly.
+* Inlined rdoc documentation into the C source code.
+* Made the semaphore.txt file rdoc friendly.
+* Removed the semaphore.rd file.
+
+== 0.2.1 - 1-Mar-2005
+* Added a VERSION constant (oops).
+* Moved the 'examples' directory to the toplevel directory.
+* Made the CHANGES and README files rdoc friendly.
+* Removed an unused (and unnecessary) helper function in semaphore.h.
+
+== 0.2.0 - 16-Jul-2004
+* Modified to use the newer allocation framework.  This means that as of this
+  release, this package requires Ruby 1.8.0 or later.
+* Fixed a bug in the constructor where it was possible for the constructor to
+  fail, but have no error raised.
+* Moved the test.rb file to the doc/examples directory.
+* Added more tests.
+
+== 0.1.0 - 14-May-2004
+* Initial release

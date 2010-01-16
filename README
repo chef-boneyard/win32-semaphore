@@ -1,0 +1,58 @@
+== Brief Description
+   An interface for MS Windows Semaphores.
+
+== Prerequisites
+   win32-ipc 0.5.0 or later.
+
+== Installation
+   rake test (optional)
+   rake install
+
+== Synopsis
+   require 'win32/semaphore'
+   include Win32
+
+   Semaphore.new(1, 5, 'test') do |sem|
+      puts 'uh, oh' unless sem.wait(10) > 0
+      sem.release(2) # 2
+   end
+
+== Documentation
+   The semaphore.rb file contains inline RDoc documentation. If you installed
+   this file as a gem, then you have the docs.
+
+   For more detailed documentation about Semaphores on MS Windows in general,
+   please visit http://www.msdn.com/library and lookup the CreateSemaphore(),
+   OpenSemaphore() and ReleaseSemaphore() functions.
+
+== Notes
+   The Semaphore class is a subclass of Win32::Ipc (win32-ipc). This package
+   require's the win32-ipc package internally (you don't need to explicitly
+   call it).
+
+== Acknowledgements
+   Adapted originally from the Win32::Semaphore Perl module by Christopher
+   J. Madsen.
+
+== Known Bugs
+   None known.  Any bugs should be reported on the project page at
+   http://rubyforge.org/projects/win32utils.
+
+== Future Plans
+   Suggestions welcome.
+
+== License
+   Artistic 2.0
+
+== Copyright
+   (C) 2003-2009 Daniel J. Berger
+   All Rights Reserved	
+
+== Warranty
+   This package is provided "as is" and without any express or
+   implied warranties, including, without limitation, the implied
+   warranties of merchantability and fitness for a particular purpose.
+
+== Author(s)
+   Daniel J. Berger
+   Park Heesob

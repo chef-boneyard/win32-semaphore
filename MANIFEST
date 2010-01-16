@@ -1,0 +1,8 @@
+* CHANGES
+* MANIFEST
+* README
+* Rakefile
+* win32-semaphore.gemspec
+* examples/example_semaphore.rb
+* lib/win32/semaphore.rb
+* test/test_win32_semaphore.rb
