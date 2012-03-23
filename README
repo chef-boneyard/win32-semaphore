@@ -36,7 +36,7 @@
 
 == Known Bugs
    None known.  Any bugs should be reported on the project page at
-   http://rubyforge.org/projects/win32utils.
+   http://www.github.com/djberg96/win32-semaphore
 
 == Future Plans
    Suggestions welcome.
@@ -45,7 +45,7 @@
    Artistic 2.0
 
 == Copyright
-   (C) 2003-2009 Daniel J. Berger
+   (C) 2003-2012 Daniel J. Berger
    All Rights Reserved	
 
 == Warranty
@@ -53,6 +53,6 @@
    implied warranties, including, without limitation, the implied
    warranties of merchantability and fitness for a particular purpose.
 
-== Author(s)
+== Authors
    Daniel J. Berger
    Park Heesob

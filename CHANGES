@@ -1,3 +1,7 @@
+== 0.3.2 - 23-Mar-2012
+* Refactored the Rakefile and cleaned up the gemspec.
+* Removed one test that was originally designed for the C version.
+
 == 0.3.1 - 11-Aug-2009
 * Changed license to Artistic 2.0.
 * The Semaphore.open method is now slightly more robust.
