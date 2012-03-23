@@ -1,24 +1,31 @@
 require 'rake'
+require 'rake/clean'
 require 'rake/testtask'
-require 'rbconfig'
-include Config
 
-desc 'Install the win32-semaphore package (non-gem)'
-task :install do
-   sitelibdir = CONFIG['sitelibdir']
-   installdir = File.join(sitelibdir, 'win32')
-   file = 'lib\win32\semaphore.rb'
+CLEAN.include("**/*.gem")
 
-   Dir.mkdir(installdir) unless File.exists?(installdir)
-   FileUtils.cp(file, installdir, :verbose => true)
+namespace :gem do
+  desc 'Create the win32-semaphore gem'
+  task :create => [:clean] do
+    spec = eval(IO.read('win32-semaphore.gemspec'))
+    Gem::Builder.new(spec).build
+  end
+
+  desc 'Install the win32-semaphore gem'
+  task :install => [:create] do
+    file = Dir["*.gem"].first
+    sh "gem install #{file}"
+  end
 end
 
 desc 'Run the example program'
 task :example do
-   ruby '-Ilib examples/example_semaphore.rb'
+  ruby '-Ilib examples/example_semaphore.rb'
 end
 
 Rake::TestTask.new do |t|
-   t.verbose = true
-   t.warning = true
+  t.verbose = true
+  t.warning = true
 end
+
+task :default => :test
