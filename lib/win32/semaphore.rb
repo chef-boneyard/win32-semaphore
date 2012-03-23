@@ -5,17 +5,17 @@ module Win32
 
    # The Semaphore class encapsulates semaphore objects on Windows.
    class Semaphore < Ipc
-   
+
       # This is the error raised if any of the Semaphore methods fail.
       class Error < StandardError; end
-   
+
       extend Windows::Synchronize
       extend Windows::Error
       extend Windows::Handle
-      
+
       # The version of the win32-semaphore library
-      VERSION = '0.3.1'
-      
+      VERSION = '0.3.2'
+
       # The initial count for the semaphore object. This value must be greater
       # than or equal to zero and less than or equal to +max_count+. The state
       # of a semaphore is signaled when its count is greater than zero and
@@ -25,16 +25,16 @@ module Win32
       # Semaphore#release method.
       #
       attr_reader :initial_count
-      
+
       # The maximum count for the semaphore object. This value must be
-      # greater than zero. 
+      # greater than zero.
       #
       attr_reader :max_count
-      
+
       # The name of the Semaphore object.
       #
       attr_reader :name
-      
+
       # Creates and returns new Semaphore object. If +name+ is omitted, the
       # Semaphore object is created without a name, i.e. it's anonymous.
       #
@@ -54,12 +54,12 @@ module Win32
          @max_count = max_count
          @name      = name
          @inherit   = inherit
-         
+
          # Used to prevent potential segfaults.
          if name && !name.is_a?(String)
             raise TypeError, 'name must be a string'
          end
-         
+
          if inherit
             sec = 0.chr * 12 # sizeof(SECURITY_ATTRIBUTES)
             sec[0,4] = [12].pack('L')
@@ -67,15 +67,15 @@ module Win32
          else
             sec = 0
          end
-         
+
          handle = CreateSemaphore(sec, initial_count, max_count, name)
-         
+
          if handle == 0 || handle == INVALID_HANDLE_VALUE
             raise Error, get_last_error
          end
- 
+
          super(handle)
-         
+
          if block_given?
             begin
                yield self
@@ -128,12 +128,12 @@ module Win32
          pcount = [0].pack('L')
 
          unless ReleaseSemaphore(@handle, amount, pcount)
-            raise Error, get_last_error   
+            raise Error, get_last_error
          end
 
          pcount.unpack('L').first
       end
-      
+
       # Returns whether or not the object was opened such that a process
       # created by the CreateProcess() function (a Windows API function) can
       # inherit the handle. The default is true.
