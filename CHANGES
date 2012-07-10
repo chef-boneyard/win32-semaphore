@@ -1,3 +1,10 @@
+== 0.4.0 - 10-Jul-2012
+* Converted source to use FFI.
+* Refactored tests.
+* Now requires Ruby 1.9 or later.
+* Removed the Error class. Now uses SystemCallError (Errno::) internally if
+  a Windows function fails.
+
 == 0.3.2 - 23-Mar-2012
 * Refactored the Rakefile and cleaned up the gemspec.
 * Removed one test that was originally designed for the C version.
