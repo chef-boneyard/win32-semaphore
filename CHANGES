@@ -1,3 +1,7 @@
+== 0.4.1 - 10-Apr-2013
+* Fixed the HANDLE type in the underlying FFI code. This affects
+  64 bit versions of Ruby.
+
 == 0.4.0 - 10-Jul-2012
 * Converted source to use FFI.
 * Refactored tests.
