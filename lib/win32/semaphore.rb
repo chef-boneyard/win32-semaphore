@@ -5,21 +5,24 @@ module Win32
 
   # The Semaphore class encapsulates semaphore objects on Windows.
   class Semaphore < Ipc
+    typedef :ulong, :dword
+    typedef :uintptr_t, :handle
+
     ffi_lib :kernel32
 
     private
 
     class SecurityAttributes < FFI::Struct
       layout(
-        :nLength, :ulong,
+        :nLength, :dword,
         :lpSecurityDescriptor, :pointer,
         :bInheritHandle, :bool
       )
     end
 
-    attach_function :CreateSemaphoreW, [:pointer, :long, :long, :buffer_in], :ulong
-    attach_function :OpenSemaphoreW, [:ulong, :bool, :buffer_in], :ulong
-    attach_function :ReleaseSemaphore, [:ulong, :long, :pointer], :bool
+    attach_function :CreateSemaphoreW, [:pointer, :long, :long, :buffer_in], :handle
+    attach_function :OpenSemaphoreW, [:dword, :bool, :buffer_in], :handle
+    attach_function :ReleaseSemaphore, [:handle, :long, :pointer], :bool
 
     private_class_method :CreateSemaphoreW, :OpenSemaphoreW, :ReleaseSemaphore
 
@@ -29,7 +32,7 @@ module Win32
     public
 
     # The version of the win32-semaphore library
-    VERSION = '0.4.0'
+    VERSION = '0.4.1'
 
     # The initial count for the semaphore object. This value must be greater
     # than or equal to zero and less than or equal to +max_count+. The state
