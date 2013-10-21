@@ -1,3 +1,8 @@
+== 0.4.2 - 21-Oct-2013
+* Fixed the INVALID_HANDLE_VALUE constant for 64-bit Ruby.
+* Added Rake as a development dependency.
+* Fixed gem:create task for Rubygems 2.
+
 == 0.4.1 - 10-Apr-2013
 * Fixed the HANDLE type in the underlying FFI code. This affects
   64 bit versions of Ruby.
