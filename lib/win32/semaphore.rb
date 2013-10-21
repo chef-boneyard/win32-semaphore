@@ -27,12 +27,12 @@ module Win32
     private_class_method :CreateSemaphoreW, :OpenSemaphoreW, :ReleaseSemaphore
 
     SEMAPHORE_ALL_ACCESS = 0x1F0003
-    INVALID_HANDLE_VALUE = 0xFFFFFFFF
+    INVALID_HANDLE_VALUE = FFI::Pointer.new(-1).address
 
     public
 
     # The version of the win32-semaphore library
-    VERSION = '0.4.1'
+    VERSION = '0.4.2'
 
     # The initial count for the semaphore object. This value must be greater
     # than or equal to zero and less than or equal to +max_count+. The state
