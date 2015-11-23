@@ -21,7 +21,7 @@ module Win32
     end
 
     attach_function :CreateSemaphoreW, [:pointer, :long, :long, :buffer_in], :handle
-    attach_function :OpenSemaphoreW, [:dword, :bool, :buffer_in], :handle
+    attach_function :OpenSemaphoreW, [:dword, :int, :buffer_in], :handle
     attach_function :ReleaseSemaphore, [:handle, :long, :pointer], :bool
 
     private_class_method :CreateSemaphoreW, :OpenSemaphoreW, :ReleaseSemaphore
@@ -32,7 +32,7 @@ module Win32
     public
 
     # The version of the win32-semaphore library
-    VERSION = '0.4.2'
+    VERSION = '0.4.3'
 
     # The initial count for the semaphore object. This value must be greater
     # than or equal to zero and less than or equal to +max_count+. The state
@@ -120,6 +120,8 @@ module Win32
         name = name + 0.chr
         name.encode!('UTF-16LE')
       end
+
+      inherit = inherit ? 1 : 0
 
       begin
         # The OpenSemaphore() call here is strictly to force an error if the
