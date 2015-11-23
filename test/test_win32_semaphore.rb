@@ -14,7 +14,7 @@ class TC_Semaphore < Test::Unit::TestCase
   end
 
   test "version is set to expected value" do
-    assert_equal('0.4.2', Semaphore::VERSION)
+    assert_equal('0.4.3', Semaphore::VERSION)
   end
 
   test "initial_count basic functionality" do
