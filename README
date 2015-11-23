@@ -25,16 +25,14 @@
    OpenSemaphore() and ReleaseSemaphore() functions.
 
 == Notes
-   The Semaphore class is a subclass of Win32::Ipc (win32-ipc). This package
-   require's the win32-ipc package internally (you don't need to explicitly
-   call it).
+   The Win32::Semaphore class is a subclass of Win32::Ipc.
 
 == Acknowledgements
    Adapted originally from the Win32::Semaphore Perl module by Christopher
    J. Madsen.
 
 == Known Bugs
-   None known.  Any bugs should be reported on the project page at
+   None known. Any bugs should be reported on the project page at
    https://github.com/djberg96/win32-semaphore.
 
 == Future Plans
@@ -44,7 +42,7 @@
    Artistic 2.0
 
 == Copyright
-   (C) 2003-2013 Daniel J. Berger
+   (C) 2003-2015 Daniel J. Berger
    All Rights Reserved	
 
 == Warranty
