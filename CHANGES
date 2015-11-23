@@ -1,3 +1,10 @@
+== 0.4.3 - 23-Nov-2015
+* Fixed the function prototype for OpenSemaphore and made corresponding changes.
+* The gem is now signed.
+* Added a win32-semaphore.rb file for convenience.
+* The gem related tasks in the gemspec now assume Rubygems 2.x.
+* Added certs to the gemspec and removed references to rubyforge_project.
+
 == 0.4.2 - 21-Oct-2013
 * Fixed the INVALID_HANDLE_VALUE constant for 64-bit Ruby.
 * Added Rake as a development dependency.
