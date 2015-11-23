@@ -2,7 +2,7 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
   spec.name        = 'win32-semaphore'
-  spec.version     = '0.4.2'
+  spec.version     = '0.4.3'
   spec.author      = 'Daniel J. Berger'
   spec.license     = 'Artistic 2.0'
   spec.email       = 'djberg96@gmail.com'
@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.summary     = 'Interface to MS Windows Semaphore objects.'
   spec.test_file   = 'test/test_win32_semaphore.rb'
   spec.files       = Dir['**/*'].reject{ |f| f.include?('git') }
+  spec.cert_chain  = Dir['certs/*']
 
-  spec.rubyforge_project = 'win32utils'
   spec.extra_rdoc_files  = ['README', 'CHANGES', 'MANIFEST']
   spec.required_ruby_version = '> 1.9.0'
 
