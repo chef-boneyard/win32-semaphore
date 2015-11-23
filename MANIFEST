@@ -3,6 +3,8 @@
 * README
 * Rakefile
 * win32-semaphore.gemspec
+* certs/djberg96_pub.pem
 * examples/example_semaphore.rb
+* lib/win32-semaphore.rb
 * lib/win32/semaphore.rb
 * test/test_win32_semaphore.rb
